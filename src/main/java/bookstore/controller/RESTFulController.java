@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bookstore.model.Publisher;
@@ -28,6 +29,24 @@ public class RESTFulController {
 		// List<Publisher> publishers =
 		// PublisherService.findAllPublishers();
 		List<Publisher> publishers = publisherService.listAllPublishers();
+		if (publishers.isEmpty()) {
+			return new ResponseEntity<List<Publisher>>(HttpStatus.NO_CONTENT);// You
+																				// many
+																				// decide
+																				// to
+																				// return
+																				// HttpStatus.NOT_FOUND
+		}
+		return new ResponseEntity<List<Publisher>>(publishers, HttpStatus.OK);
+	}
+
+	// -------------------Retrieve All
+	// Publishers with pagination --------------------------------------
+
+	@RequestMapping(value = "/publisher", params = { "page", "size" }, method = RequestMethod.GET)
+	public ResponseEntity<List<Publisher>> listAllPublishersPaginated(@RequestParam("page") Integer page,
+			@RequestParam("size") Integer size) {
+		List<Publisher> publishers = publisherService.listAllPublishers(page,size);
 		if (publishers.isEmpty()) {
 			return new ResponseEntity<List<Publisher>>(HttpStatus.NO_CONTENT);// You
 																				// many
