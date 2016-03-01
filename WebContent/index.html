@@ -16,6 +16,7 @@
 <script src="js/services.js"></script>
 <script src="js/dirPagination.js"></script>
 <script src="js/angular-resource.js"></script>
+
 </head>
 
 <body>
@@ -24,10 +25,6 @@
 			<div class="col-lg-8">
 				<div ng-controller="MyController" class="my-controller">
 					<h1>List of Publishers</h1>
-
-					<small>this is in "MyController"</small>
-
-
 					<div class="row">
 						<div class="col-xs-4">
 							<h3>Publishers Page: {{ currentPage }}</h3>
@@ -45,7 +42,7 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 
-							<table>
+							<table class="table">
 								<thead>
 									<tr>
 										<th>Publisher Name</th>
@@ -72,7 +69,6 @@
 				</div>
 
 				<div ng-controller="OtherController" class="other-controller">
-					<small>this is in "OtherController"</small>
 					<div class="text-center">
 						<dir-pagination-controls boundary-links="true"
 							on-page-change="pageChangeHandler(newPageNumber)"
