@@ -8,7 +8,9 @@
   <script data-require="bootstrap@3.1.1" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <script src="js/script.js"></script>
+  <script src="js/services.js"></script>
   <script src="js/dirPagination.js"></script>
+  <script src="js/angular-resource.js"></script>
 </head>
 
 <body>
@@ -39,7 +41,7 @@
             <div class="panel-body">
 
               <ul>
-                <li dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ meal }}</li>
+                <li dir-paginate="publisher in publishers | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ publisher.pname }}</li>
                 
               </ul>
             </div>
