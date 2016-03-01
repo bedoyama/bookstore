@@ -2,6 +2,9 @@ package bookstore.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -57,6 +60,7 @@ public class Publisher implements Serializable {
 
 	//bi-directional many-to-many association to Book
 	@ManyToMany(mappedBy="publishers")
+	@JsonIgnore
 	public List<Book> getBooks() {
 		return this.books;
 	}
