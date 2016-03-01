@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,4 +38,19 @@ public class RESTFulController {
 		}
 		return new ResponseEntity<List<Publisher>>(publishers, HttpStatus.OK);
 	}
+
+	// -------------------Retrieve Single
+	// Publisher--------------------------------------------------------
+
+	@RequestMapping(value = "/publisher/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Publisher> getPublisher(@PathVariable("id") Long id) {
+		System.out.println("Fetching Publisher with id " + id);
+		Publisher publisher = publisherService.findPublisherById(id);
+		if (publisher == null) {
+			System.out.println("Publisher with id " + id + " not found");
+			return new ResponseEntity<Publisher>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Publisher>(publisher, HttpStatus.OK);
+	}
+
 }

@@ -7,37 +7,7 @@ import org.springframework.stereotype.Repository;
 import bookstore.model.Category;
 
 @Repository("categoryDao")
-public class CategoryDaoImpl implements CategoryDao {
-
-	@Override
-	public void persist(Category entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(Category entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(Category entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Category findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class CategoryDaoImpl extends AbstractDaoImpl<Long, Category> implements CategoryDao {
 
 	@Override
 	public List<Category> listAll() {

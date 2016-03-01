@@ -7,37 +7,7 @@ import org.springframework.stereotype.Repository;
 import bookstore.model.Author;
 
 @Repository("authorDao")
-public class AuthorDaoImpl implements AuthorDao {
-
-	@Override
-	public void persist(Author entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update(Author entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Author entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Author findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class AuthorDaoImpl extends AbstractDaoImpl<Long, Author> implements AuthorDao {
 
 	@Override
 	public List<Author> listAll() {
@@ -50,6 +20,5 @@ public class AuthorDaoImpl implements AuthorDao {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 }
