@@ -39,7 +39,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 			}
 		}
 	})
-	.state('editdetail', {
+	.state('edit.detail', {
 		url : "/edit/:publisherId",
 		views : {
 			"viewA" : {
