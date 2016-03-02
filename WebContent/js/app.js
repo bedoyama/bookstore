@@ -44,9 +44,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		views : {
 			"viewA" : {
 				templateUrl : 'parts/editpub.html',
-				controller : function($scope, $stateParams) {
-				    $scope.publisherId = 11;
-				}
+				controller : 'EditController'
 			},
 			"viewB" : {
 				templateUrl : 'parts/blank.html'
