@@ -12,7 +12,8 @@ myApp.run([ '$rootScope', '$state', '$stateParams',
 myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/");
 	$locationProvider.html5Mode(false).hashPrefix('!');
-	$stateProvider.state('home', {
+	$stateProvider
+	.state('home', {
 		url : "/",
 		views : {
 			"viewA" : {
@@ -22,6 +23,17 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 			"viewB" : {
 				templateUrl : 'parts/viewB.html',
 				controller : 'OtherController'
+			}
+		}
+	})
+	.state('edit', {
+		url : "/",
+		views : {
+			"viewA" : {
+				templateUrl : 'parts/editpub.html',
+			},
+			"viewB" : {
+				templateUrl : 'parts/blank.html',
 			}
 		}
 	});

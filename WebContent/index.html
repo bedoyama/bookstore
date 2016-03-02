@@ -11,7 +11,8 @@
 	src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script data-require="bootstrap@3.1.1" data-semver="3.1.1"
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+<script
+	src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
 <link rel="stylesheet" href="style.css" />
 <script src="js/dirPagination.js"></script>
 <script src="js/angular-resource.js"></script>
@@ -23,11 +24,13 @@
 
 <body>
 	<div class="container">
+		<a ui-sref="home">Home</a>
+		<a ui-sref="edit">Edit</a>
 		<div class="row">
 			<div class="col-lg-8">
 				<div ui-view="viewA"></div>
 				<div ui-view="viewB"></div>
-				
+
 			</div>
 		</div>
 	</div>
