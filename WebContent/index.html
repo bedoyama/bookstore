@@ -25,58 +25,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
-				<div ng-controller="MyController" class="my-controller">
-					<h1>List of Publishers</h1>
-					<div class="row">
-						<div class="col-xs-4">
-							<h3>Publishers Page: {{ currentPage }}</h3>
-						</div>
-						<div class="col-xs-4">
-							<label for="search">Search:</label> <input ng-model="q"
-								id="search" class="form-control" placeholder="Filter text">
-						</div>
-						<div class="col-xs-4">
-							<label for="search">items per page:</label> <input type="number"
-								min="1" max="100" class="form-control" ng-model="pageSize">
-						</div>
-					</div>
-					<br>
-					<div class="panel panel-default">
-						<div class="panel-body">
-
-							<table class="table">
-								<thead>
-									<tr>
-										<th>Publisher Name</th>
-										<th>Publisher e-mail</th>
-										<th>Id</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr
-										dir-paginate="publisher in publishers | filter:q | itemsPerPage: pageSize"
-										current-page="currentPage">
-										<td>{{publisher.pname}}</td>
-										<td>{{publisher.pemail}}</td>
-										<td><a
-											href="/bookstore/edit-{{publisher.publisherId}}-publisher">{{publisher.publisherId}}</a></td>
-										<td><a
-											href="/bookstore/delete-{{publisher.publisherId}}-publisher">delete</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-
-				<div ng-controller="OtherController" class="other-controller">
-					<div class="text-center">
-						<dir-pagination-controls boundary-links="true"
-							on-page-change="pageChangeHandler(newPageNumber)"
-							template-url="dirPagination.tpl.html"></dir-pagination-controls>
-					</div>
-				</div>
+				<div ui-view="viewA"></div>
+				<div ui-view="viewB"></div>
+				
 			</div>
 		</div>
 	</div>

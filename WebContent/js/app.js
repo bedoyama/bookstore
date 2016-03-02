@@ -1,5 +1,28 @@
 // Code goes here
 
 var myApp = angular.module('myApp', [ 'angularUtils.directives.dirPagination',
-        'bookstoreControllers',
-		'bookstoreServices' ]);
+		'ui.router', 'bookstoreControllers', 'bookstoreServices' ]);
+
+myApp.run([ '$rootScope', '$state', '$stateParams',
+		function($rootScope, $state, $stateParams) {
+			$rootScope.$state = $state;
+			$rootScope.$stateParams = $stateParams;
+		} ]);
+
+myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise("/");
+	$locationProvider.html5Mode(false).hashPrefix('!');
+	$stateProvider.state('home', {
+		url : "/",
+		views : {
+			"viewA" : {
+				templateUrl : 'parts/viewA.html',
+				controller : 'MyController'
+			},
+			"viewB" : {
+				templateUrl : 'parts/viewB.html',
+				controller : 'OtherController'
+			}
+		}
+	});
+});
