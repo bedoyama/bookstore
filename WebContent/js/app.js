@@ -3,18 +3,17 @@
 var myApp = angular.module('myApp', [ 'angularUtils.directives.dirPagination',
 		'ui.router', 'bookstoreControllers', 'bookstoreServices' ]);
 
-myApp.run([ '$rootScope', '$state', '$stateParams',
-		function($rootScope, $state, $stateParams) {
-			$rootScope.$state = $state;
-			$rootScope.$stateParams = $stateParams;
-		} ]);
+myApp.run(['$rootScope', '$location', function($rootScope, $location) {
+	  $rootScope.$location = $location;
+	}]);
 
 myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/");
-	$locationProvider.html5Mode(false).hashPrefix('!');
+	$urlRouterProvider
+	.otherwise("/home");
+
 	$stateProvider
 	.state('home', {
-		url : "/",
+		url : "/home",
 		views : {
 			"viewA" : {
 				templateUrl : 'parts/viewA.html',
@@ -27,13 +26,30 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		}
 	})
 	.state('edit', {
-		url : "/",
+		url : "/edit",
 		views : {
 			"viewA" : {
 				templateUrl : 'parts/editpub.html',
+				controller : function($scope) {
+				    $scope.publisherId = -1;
+				}
 			},
 			"viewB" : {
-				templateUrl : 'parts/blank.html',
+				templateUrl : 'parts/blank.html'
+			}
+		}
+	})
+	.state('editdetail', {
+		url : "/edit/:publisherId",
+		views : {
+			"viewA" : {
+				templateUrl : 'parts/editpub.html',
+				controller : function($scope, $stateParams) {
+				    $scope.publisherId = 11;
+				}
+			},
+			"viewB" : {
+				templateUrl : 'parts/blank.html'
 			}
 		}
 	});

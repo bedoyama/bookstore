@@ -40,6 +40,7 @@ public class PersistenceJPAConfig {
 		// dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore?verifyServerCertificate=false&useSSL=false");
 		// dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore?useSSL=false");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore");
+		//dataSource.setUrl("jdbc:mysql://104.154.20.158:3306/bookstore");
 		dataSource.setUsername("antra");
 		dataSource.setPassword("antra");
 		return dataSource;

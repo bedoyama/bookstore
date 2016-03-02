@@ -23,5 +23,10 @@ function OtherController($scope) {
 	};
 }
 
+function EditController($scope, $stateParams) {
+    $scope.publisherId = $stateParams.publisherId;
+}
+
 bookstoreControllers.controller('MyController', [ '$scope', 'Publisher', MyController ]);
 bookstoreControllers.controller('OtherController', [ '$scope', OtherController ]);
+bookstoreControllers.controller('EditController', [ '$scope', '$stateParams', EditController ]);
