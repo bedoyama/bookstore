@@ -35,8 +35,7 @@
 						<td>{{publisher.pemail}}</td>
 						<td><a
 							href="/bookstore/#/edit/{{publisher.publisherId}}">{{publisher.publisherId}}</a></td>
-						<td><a
-							href="/bookstore/delete/{{publisher.publisherId}}">delete</a></td>
+						<td><input type="button" ng-click="deleteent(publisher)" value="Delete" /></td>
 					</tr>
 				</tbody>
 			</table>

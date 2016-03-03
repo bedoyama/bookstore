@@ -111,9 +111,25 @@ public class RESTFulController {
 
 		currentPublisher.setPname(publisher.getPname());
 		currentPublisher.setPemail(publisher.getPemail());
-		
+
 		publisherService.updatePublisher(currentPublisher);
 		return new ResponseEntity<Publisher>(currentPublisher, HttpStatus.OK);
 	}
 
+	// ------------------- Delete a Publisher
+	// --------------------------------------------------------
+
+	@RequestMapping(value = "/publisher/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Publisher> deletePublisher(@PathVariable("id") Long id) {
+		System.out.println("Fetching & Deleting Publisher with id " + id);
+
+		Publisher publisher = publisherService.findPublisherById(id);
+		if (publisher == null) {
+			System.out.println("Unable to delete. Publisher with id " + id + " not found");
+			return new ResponseEntity<Publisher>(HttpStatus.NOT_FOUND);
+		}
+
+		publisherService.deletePublisherById(id);
+		return new ResponseEntity<Publisher>(HttpStatus.NO_CONTENT);
+	}
 }
