@@ -1,5 +1,9 @@
 <div ng-controller="EditController" class="edit-controller">
-	<span>Edit stuff here Id is {{ publisherId }}</span><br>
-	<span>Publisher name {{ publisher.pname }}</span><br>
-	<span>Publisher email {{ publisher.pemail }}</span>
+	<span>Edit stuff here Id is {{ publisherId }}</span><br />
+	<form novalidate class="simple-form">
+		Publisher Name: <input type="text" ng-model="publisher.pname" /><br /> 
+		Publisher E-mail: <input type="email" ng-model="publisher.pemail" /><br /> 
+		<input type="button" ng-click="reset()" value="Reset" /> 
+		<input type="submit" ng-click="update(publisher)" value="Save" />
+	</form>
 </div>
