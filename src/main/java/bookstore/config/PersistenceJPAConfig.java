@@ -39,7 +39,12 @@ public class PersistenceJPAConfig {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		// dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore?verifyServerCertificate=false&useSSL=false");
 		// dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore?useSSL=false");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore");
+		//dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore");
+		
+		//AWS
+		//dataSource.setUrl("jdbc:mysql://52.90.148.88:3306/bookstore");
+		
+		//Google
 		//dataSource.setUrl("jdbc:mysql://104.154.20.158:3306/bookstore");
 		dataSource.setUsername("antra");
 		dataSource.setPassword("antra");
