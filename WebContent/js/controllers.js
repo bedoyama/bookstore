@@ -25,10 +25,21 @@ function OtherController($scope) {
 
 function EditController($scope, $stateParams, Publisher) {
     $scope.publisherId = $stateParams.publisherId;
-	 Publisher.get({publisherId: $stateParams.publisherId} ,function(data) {
-		 $scope.publisher = data;
-	 });
+	 $scope.master = {};
+	 
+     $scope.update = function(publisher) {
+       $scope.master = angular.copy(publisher);
+     };
 
+     $scope.reset = function() {
+       $scope.publisher = angular.copy($scope.master);
+     };
+
+     Publisher.get({publisherId: $stateParams.publisherId} ,function(data) {
+		 $scope.publisher = data;
+		 $scope.update($scope.publisher);
+	 });
+     
 
 }
 
