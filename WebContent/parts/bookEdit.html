@@ -1,0 +1,9 @@
+<div ng-controller="BookEditCtrl" class="book-edit-ctrl">
+	<h2>Book create/edit</h2>
+	<span>Edit stuff here Id is {{ bookId }}</span><br />
+	<form novalidate class="simple-form">
+		Book Title: <input type="text" ng-model="book.btitle" /><br /> 
+		<input type="button" ng-click="reset()" value="Reset" /> 
+		<input type="submit" ng-click="update(book)" value="Save" />
+	</form>
+</div>

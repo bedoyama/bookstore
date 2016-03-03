@@ -17,8 +17,10 @@
 <script src="js/dirPagination.js"></script>
 <script src="js/angular-resource.js"></script>
 <script src="js/services.js"></script>
+<script src="js/bookcontrollers.js"></script>
 <script src="js/authorcontrollers.js"></script>
 <script src="js/publishercontrollers.js"></script>
+<script src="js/categorycontrollers.js"></script>
 <script src="js/app.js"></script>
 
 </head>
@@ -28,10 +30,14 @@
 		<div class="row">
 			<div class="col-lg-2 list-group">
 				<a ui-sref="home" class="list-group-item">Home</a> 
+				<a ui-sref="bookList" class="list-group-item">List of Books</a> 
+				<a ui-sref="bookEdit" class="list-group-item">New Book</a>
 				<a ui-sref="authorList" class="list-group-item">List of Authors</a> 
 				<a ui-sref="authorEdit" class="list-group-item">New Author</a>
 				<a ui-sref="publisherList" class="list-group-item">List of Publishers</a> 
 				<a ui-sref="publisherEdit" class="list-group-item">New Publisher</a>
+				<a ui-sref="categoryList" class="list-group-item">List of Categories</a> 
+				<a ui-sref="categoryEdit" class="list-group-item">New Category</a>
 			</div>
 			<div class="col-lg-8">
 				<div ui-view="topFrame"></div>

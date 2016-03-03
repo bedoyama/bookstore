@@ -1,31 +1,98 @@
 // Code goes here
 
 var myApp = angular.module('myApp', [ 'angularUtils.directives.dirPagination',
-		'ui.router', 'bookPublisherControllers', 'bookAuthorControllers', 'bookstoreServices' ]);
+		'ui.router', 'bookBookControllers', 'bookAuthorControllers',
+		'bookPublisherControllers', 'bookCategoryControllers',
+		'bookstoreServices' ]);
 
-myApp.run(['$rootScope', '$location', function($rootScope, $location) {
-	  $rootScope.$location = $location;
-	}]);
+myApp.run([ '$rootScope', '$location', function($rootScope, $location) {
+	$rootScope.$location = $location;
+} ]);
 
 myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
-	$urlRouterProvider
-	.otherwise("/home");
+	$urlRouterProvider.otherwise("/home");
 
-	$stateProvider
-	.state('home', {
+	$stateProvider.state('home', {
 		url : "/home",
 		views : {
 			"topFrame" : {
-				templateUrl : 'parts/publisherList.html',
-				controller : 'PublisherListCtrl'
+				templateUrl : 'parts/bookList.html',
+				controller : 'BookListCtrl'
 			},
 			"bottomFrame" : {
 				templateUrl : 'parts/defaultBottomPaginator.html',
 				controller : 'PaginationController'
 			}
 		}
-	})
-	.state('authorList', {
+	}).state('categoryList', {
+		url : "/categorylist",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/categoryList.html',
+				controller : 'CategoryListCtrl'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/defaultBottomPaginator.html',
+				controller : 'PaginationController'
+			}
+		}
+	}).state('categoryEdit', {
+		url : "/categoryedit",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/categoryEdit.html',
+				controller : 'CategoryEditCtrl'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/blank.html'
+			}
+		}
+	}).state('categoryEditDetail', {
+		url : "/categoryedit/:categoryId",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/categoryEdit.html',
+				controller : 'CategoryEditCtrl'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/blank.html'
+			}
+		}
+	}).state('bookList', {
+		url : "/booklist",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/bookList.html',
+				controller : 'BookListCtrl'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/defaultBottomPaginator.html',
+				controller : 'PaginationController'
+			}
+		}
+	}).state('bookEdit', {
+		url : "/bookedit",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/bookEdit.html',
+				controller : 'BookEditCtrl'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/blank.html'
+			}
+		}
+	}).state('bookEditDetail', {
+		url : "/bookedit/:bookId",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/bookEdit.html',
+				controller : 'BookEditCtrl'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/blank.html'
+			}
+		}
+	}).state('authorList', {
 		url : "/authorlist",
 		views : {
 			"topFrame" : {
@@ -37,8 +104,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 				controller : 'PaginationController'
 			}
 		}
-	})
-	.state('authorEdit', {
+	}).state('authorEdit', {
 		url : "/authoredit",
 		views : {
 			"topFrame" : {
@@ -49,8 +115,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 				templateUrl : 'parts/blank.html'
 			}
 		}
-	})
-	.state('authorEditDetail', {
+	}).state('authorEditDetail', {
 		url : "/authoredit/:authorId",
 		views : {
 			"topFrame" : {
@@ -61,8 +126,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 				templateUrl : 'parts/blank.html'
 			}
 		}
-	})
-	.state('publisherList', {
+	}).state('publisherList', {
 		url : "/publist",
 		views : {
 			"topFrame" : {
@@ -74,8 +138,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 				controller : 'PaginationController'
 			}
 		}
-	})
-	.state('publisherEdit', {
+	}).state('publisherEdit', {
 		url : "/pubedit",
 		views : {
 			"topFrame" : {
@@ -86,8 +149,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 				templateUrl : 'parts/blank.html'
 			}
 		}
-	})
-	.state('publisherEditDetail', {
+	}).state('publisherEditDetail', {
 		url : "/pubedit/:publisherId",
 		views : {
 			"topFrame" : {

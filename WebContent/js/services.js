@@ -19,3 +19,19 @@ bookstoreServices.factory('Author', [ '$resource', function($resource) {
 		}
 	});
 } ]);
+
+bookstoreServices.factory('Category', [ '$resource', function($resource) {
+	return $resource('/bookstore/category/:categoryId', null, {
+		'update' : {
+			method : 'PUT'
+		}
+	});
+} ]);
+
+bookstoreServices.factory('Book', [ '$resource', function($resource) {
+	return $resource('/bookstore/book/:bookId', null, {
+		'update' : {
+			method : 'PUT'
+		}
+	});
+} ]);

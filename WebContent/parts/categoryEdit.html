@@ -1,0 +1,10 @@
+<div ng-controller="CategoryEditCtrl" class="category-edit-ctrl">
+	<h2>Category create/edit</h2>
+	<span>Edit stuff here Id is {{ categoryId }}</span><br />
+	<form novalidate class="simple-form">
+		Category Name: <input type="text" ng-model="category.catname" /><br /> 
+		Category Parent: <input type="text" ng-model="category.category.catname" /><br /> 
+		<input type="button" ng-click="reset()" value="Reset" /> 
+		<input type="submit" ng-click="update(category)" value="Save" />
+	</form>
+</div>
