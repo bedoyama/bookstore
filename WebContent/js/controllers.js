@@ -29,6 +29,7 @@ function EditController($scope, $stateParams, Publisher) {
 	 
      $scope.update = function(publisher) {
        $scope.master = angular.copy(publisher);
+       Publisher.update({ publisherId:publisher.publisherId }, publisher);
      };
 
      $scope.reset = function() {
