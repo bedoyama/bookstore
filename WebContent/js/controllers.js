@@ -21,7 +21,7 @@ function MyController($scope, Publisher) {
 	}
 }
 
-function OtherController($scope) {
+function PaginationController($scope) {
 	$scope.pageChangeHandler = function(num) {
 		console.log('going to page ' + num);
 	};
@@ -49,5 +49,5 @@ function EditController($scope, $stateParams, Publisher) {
 }
 
 bookstoreControllers.controller('MyController', [ '$scope', 'Publisher', MyController ]);
-bookstoreControllers.controller('OtherController', [ '$scope', OtherController ]);
+bookstoreControllers.controller('PaginationController', [ '$scope', PaginationController ]);
 bookstoreControllers.controller('EditController', [ '$scope', '$stateParams', 'Publisher', EditController ]);

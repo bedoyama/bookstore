@@ -24,12 +24,15 @@
 
 <body>
 	<div class="container">
-		<a ui-sref="home">Home</a>
-		<a ui-sref="edit">New</a>
 		<div class="row">
+			<div class="col-lg-2 list-group">
+				<a ui-sref="home" class="list-group-item">Home</a> 
+				<a ui-sref="publisherList" class="list-group-item">List of Publishers</a> 
+				<a ui-sref="publisherEdit" class="list-group-item">New Publisher</a>
+			</div>
 			<div class="col-lg-8">
-				<div ui-view="viewA"></div>
-				<div ui-view="viewB"></div>
+				<div ui-view="topFrame"></div>
+				<div ui-view="bottomFrame"></div>
 
 			</div>
 		</div>

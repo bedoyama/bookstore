@@ -15,38 +15,51 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	.state('home', {
 		url : "/home",
 		views : {
-			"viewA" : {
-				templateUrl : 'parts/viewA.html',
+			"topFrame" : {
+				templateUrl : 'parts/publisherList.html',
 				controller : 'MyController'
 			},
-			"viewB" : {
-				templateUrl : 'parts/viewB.html',
-				controller : 'OtherController'
+			"bottomFrame" : {
+				templateUrl : 'parts/defaultBottomPaginator.html',
+				controller : 'PaginationController'
 			}
 		}
 	})
-	.state('edit', {
-		url : "/edit",
+	.state('publisherList', {
+		url : "/publist",
 		views : {
-			"viewA" : {
-				templateUrl : 'parts/editpub.html',
+			"topFrame" : {
+				templateUrl : 'parts/publisherList.html',
+				controller : 'MyController'
+			},
+			"bottomFrame" : {
+				templateUrl : 'parts/defaultBottomPaginator.html',
+				controller : 'PaginationController'
+			}
+		}
+	})
+	.state('publisherEdit', {
+		url : "/pubedit",
+		views : {
+			"topFrame" : {
+				templateUrl : 'parts/publisherEdit.html',
 				controller : function($scope) {
 				    $scope.publisherId = -1;
 				}
 			},
-			"viewB" : {
+			"bottomFrame" : {
 				templateUrl : 'parts/blank.html'
 			}
 		}
 	})
-	.state('editDetail', {
-		url : "/edit/:publisherId",
+	.state('publisherEditDetail', {
+		url : "/pubedit/:publisherId",
 		views : {
-			"viewA" : {
-				templateUrl : 'parts/editpub.html',
+			"topFrame" : {
+				templateUrl : 'parts/publisherEdit.html',
 				controller : 'EditController'
 			},
-			"viewB" : {
+			"bottomFrame" : {
 				templateUrl : 'parts/blank.html'
 			}
 		}
