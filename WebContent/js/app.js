@@ -1,7 +1,7 @@
 // Code goes here
 
 var myApp = angular.module('myApp', [ 'angularUtils.directives.dirPagination',
-		'ui.router', 'bookstoreControllers', 'bookstoreServices' ]);
+		'ui.router', 'bookPublisherControllers', 'bookstoreServices' ]);
 
 myApp.run(['$rootScope', '$location', function($rootScope, $location) {
 	  $rootScope.$location = $location;
@@ -17,7 +17,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		views : {
 			"topFrame" : {
 				templateUrl : 'parts/publisherList.html',
-				controller : 'MyController'
+				controller : 'PublicationListCtrl'
 			},
 			"bottomFrame" : {
 				templateUrl : 'parts/defaultBottomPaginator.html',
@@ -30,7 +30,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		views : {
 			"topFrame" : {
 				templateUrl : 'parts/publisherList.html',
-				controller : 'MyController'
+				controller : 'PublicationListCtrl'
 			},
 			"bottomFrame" : {
 				templateUrl : 'parts/defaultBottomPaginator.html',
@@ -43,9 +43,7 @@ myApp.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		views : {
 			"topFrame" : {
 				templateUrl : 'parts/publisherEdit.html',
-				controller : function($scope) {
-				    $scope.publisherId = -1;
-				}
+				controller : 'EditController'
 			},
 			"bottomFrame" : {
 				templateUrl : 'parts/blank.html'

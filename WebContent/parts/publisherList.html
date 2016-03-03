@@ -1,5 +1,5 @@
 
-<div ng-controller="MyController" class="my-controller">
+<div ng-controller="PublicationListCtrl" class="publication-list-ctrl">
 	<h1>List of Publishers</h1>
 	<div class="row">
 		<div class="col-xs-4">
@@ -34,7 +34,7 @@
 						<td>{{publisher.pname}}</td>
 						<td>{{publisher.pemail}}</td>
 						<td><a
-							href="/bookstore/#/edit/{{publisher.publisherId}}">{{publisher.publisherId}}</a></td>
+							href="/bookstore/#/pubedit/{{publisher.publisherId}}">{{publisher.publisherId}}</a></td>
 						<td><input type="button" ng-click="deleteent(publisher)" value="Delete" /></td>
 					</tr>
 				</tbody>
