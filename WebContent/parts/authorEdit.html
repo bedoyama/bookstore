@@ -1,0 +1,10 @@
+<div ng-controller="AuthorEditCtrl" class="author-edit-ctrl">
+	<h2>Author create/edit</h2>
+	<span>Edit stuff here Id is {{ authorId }}</span><br />
+	<form novalidate class="simple-form">
+		Author First Name: <input type="text" ng-model="author.auFname" /><br /> 
+		Author Last Name: <input type="text" ng-model="author.auLname" /><br /> 
+		<input type="button" ng-click="reset()" value="Reset" /> 
+		<input type="submit" ng-click="update(author)" value="Save" />
+	</form>
+</div>

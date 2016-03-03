@@ -1,9 +1,9 @@
 
-<div ng-controller="PublisherListCtrl" class="publisher-list-ctrl">
-	<h1>List of Publishers</h1>
+<div ng-controller="AuthorListCtrl" class="author-list-ctrl">
+	<h1>List of Authors</h1>
 	<div class="row">
 		<div class="col-xs-4">
-			<h3>Publishers Page: {{ currentPage }}</h3>
+			<h3>Authors Page: {{ currentPage }}</h3>
 		</div>
 		<div class="col-xs-4">
 			<label for="search">Search:</label> <input ng-model="q" id="search"
@@ -21,21 +21,21 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Publisher Name</th>
-						<th>Publisher e-mail</th>
+						<th>Author First Name</th>
+						<th>Author Last Name</th>
 						<th>Id</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr
-						dir-paginate="publisher in publishers | filter:q | itemsPerPage: pageSize"
+						dir-paginate="author in authors | filter:q | itemsPerPage: pageSize"
 						current-page="currentPage">
-						<td>{{publisher.pname}}</td>
-						<td>{{publisher.pemail}}</td>
+						<td>{{author.auFname}}</td>
+						<td>{{author.auLname}}</td>
 						<td><a
-							href="/bookstore/#/pubedit/{{publisher.publisherId}}">{{publisher.publisherId}}</a></td>
-						<td><input type="button" ng-click="deleteent(publisher)" value="Delete" /></td>
+							href="/bookstore/#/authoredit/{{author.authorId}}">{{author.authorId}}</a></td>
+						<td><input type="button" ng-click="deleteent(author)" value="Delete" /></td>
 					</tr>
 				</tbody>
 			</table>

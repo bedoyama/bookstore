@@ -4,7 +4,7 @@
 
 var bookPublisherControllers = angular.module('bookPublisherControllers', []);
 
-function PublicationListCtrl($scope, Publisher) {
+function PublisherListCtrl($scope, Publisher) {
 	$scope.currentPage = 1;
 	$scope.pageSize = 10;
 
@@ -27,7 +27,7 @@ function PaginationController($scope) {
 	};
 }
 
-function EditController($scope, $stateParams, Publisher) {
+function PublisherEditCtrl($scope, $stateParams, Publisher) {
     $scope.publisherId = $stateParams.publisherId;
 	$scope.master = {};
 	 
@@ -48,6 +48,6 @@ function EditController($scope, $stateParams, Publisher) {
 
 }
 
-bookPublisherControllers.controller('PublicationListCtrl', [ '$scope', 'Publisher', PublicationListCtrl ]);
+bookPublisherControllers.controller('PublisherListCtrl', [ '$scope', 'Publisher', PublisherListCtrl ]);
 bookPublisherControllers.controller('PaginationController', [ '$scope', PaginationController ]);
-bookPublisherControllers.controller('EditController', [ '$scope', '$stateParams', 'Publisher', EditController ]);
+bookPublisherControllers.controller('PublisherEditCtrl', [ '$scope', '$stateParams', 'Publisher', PublisherEditCtrl ]);
