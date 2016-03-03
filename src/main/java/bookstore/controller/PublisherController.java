@@ -19,7 +19,7 @@ import bookstore.model.Publisher;
 import bookstore.service.PublisherService;
 
 @RestController
-public class RESTFulController {
+public class PublisherController {
 
 	@Autowired
 	PublisherService publisherService; // will do data manipulation work

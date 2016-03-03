@@ -2,6 +2,9 @@ package bookstore.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -48,6 +51,7 @@ public class Category implements Serializable {
 
 	//bi-directional many-to-one association to Book
 	@OneToMany(mappedBy="category")
+	@JsonIgnore
 	public List<Book> getBooks() {
 		return this.books;
 	}
@@ -85,6 +89,7 @@ public class Category implements Serializable {
 
 	//bi-directional many-to-one association to Category
 	@OneToMany(mappedBy="category")
+	@JsonIgnore
 	public List<Category> getCategories() {
 		return this.categories;
 	}
