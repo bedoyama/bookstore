@@ -47,7 +47,7 @@ public class Book implements Serializable {
 
 
 	//bi-directional many-to-one association to Category
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="bcategory")
 	public Category getCategory() {
 		return this.category;
@@ -59,8 +59,11 @@ public class Book implements Serializable {
 
 
 	//bi-directional many-to-many association to Author
-	@ManyToMany
-	@JoinColumn(name="book_id", nullable=false, insertable=false, updatable=false)
+	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinColumn(name="book_id", nullable=false, insertable=false, updatable=false)
+	@JoinTable(name = "book_author", joinColumns = {
+			@JoinColumn(name = "book_id", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "author_id", nullable = false) })
 	public List<Author> getAuthors() {
 		return this.authors;
 	}
@@ -71,8 +74,11 @@ public class Book implements Serializable {
 
 
 	//bi-directional many-to-many association to Publisher
-	@ManyToMany
-	@JoinColumn(name="book_id", nullable=false, insertable=false, updatable=false)
+	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinColumn(name="book_id", nullable=false, insertable=false, updatable=false)
+	@JoinTable(name = "book_publisher", joinColumns = {
+			@JoinColumn(name = "book_id", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "publisher_id", nullable = false) })
 	public List<Publisher> getPublishers() {
 		return this.publishers;
 	}
