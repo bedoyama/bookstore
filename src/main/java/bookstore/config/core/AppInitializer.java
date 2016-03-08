@@ -1,8 +1,10 @@
-package bookstore.config;
+package bookstore.config.core;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import bookstore.controller.WebConfig;
+import bookstore.config.main.RootConfig;
+import bookstore.config.web.SecurityConfig;
+import bookstore.config.web.WebConfig;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

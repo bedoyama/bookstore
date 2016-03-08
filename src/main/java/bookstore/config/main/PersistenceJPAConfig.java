@@ -1,4 +1,4 @@
-package bookstore.config;
+package bookstore.config.main;
 
 import java.util.Properties;
 

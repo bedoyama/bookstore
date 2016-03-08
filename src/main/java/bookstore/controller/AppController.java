@@ -30,7 +30,7 @@ public class AppController {
 	/*
 	 * This method will list all existing employees.
 	 */
-	@RequestMapping(value = { "/", "/publist" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/publist" }, method = RequestMethod.GET)
 	public String listEmployees(ModelMap model) {
 		return "publishers";
 	}
