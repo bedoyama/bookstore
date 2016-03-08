@@ -7,6 +7,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +30,7 @@ public class PublisherController {
 	// Publishers--------------------------------------------------------
 
 	@RequestMapping(value = "/publisher", method = RequestMethod.GET)
-	public ResponseEntity<List<Publisher>> listAllPublishers() {
+	public ResponseEntity<List<Publisher>> listAllPublishers(ModelMap model) {
 		// List<Publisher> publishers =
 		// PublisherService.findAllPublishers();
 		List<Publisher> publishers = publisherService.listAllPublishers();
@@ -40,6 +42,7 @@ public class PublisherController {
 																				// return
 																				// HttpStatus.NOT_FOUND
 		}
+		model.addAttribute("publishers", publishers);
 		return new ResponseEntity<List<Publisher>>(publishers, HttpStatus.OK);
 	}
 
@@ -79,7 +82,7 @@ public class PublisherController {
 	// Publisher--------------------------------------------------------
 
 	@RequestMapping(value = "/publisher/", method = RequestMethod.POST)
-	public ResponseEntity<Publisher> createPublisher(@RequestBody Publisher publisher, UriComponentsBuilder ucBuilder) {
+	public ResponseEntity<Publisher> createPublisher(@RequestBody Publisher publisher, UriComponentsBuilder ucBuilder, ModelMap model) {
 		System.out.println("Creating Publisher " + publisher.getPname());
 
 		// if (publisherService.isPublisherExist(publisher)) {
@@ -88,6 +91,7 @@ public class PublisherController {
 		// return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		// }
 
+		model.addAttribute("publisher", publisher);
 		publisherService.savePublisher(publisher);
 
 		HttpHeaders headers = new HttpHeaders();
